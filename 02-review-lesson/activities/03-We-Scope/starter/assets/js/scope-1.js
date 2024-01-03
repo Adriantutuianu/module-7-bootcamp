@@ -1,10 +1,9 @@
+const x = 1;
 function outside() {
   // what is the scope of this variable?
-  const x = 1;
 
   // what is the scope of this function and the scope of y?
   function inside(y) {
-
     console.log(x + y);
   }
 
