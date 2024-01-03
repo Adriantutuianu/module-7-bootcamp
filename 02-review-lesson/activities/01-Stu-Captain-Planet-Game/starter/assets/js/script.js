@@ -36,15 +36,16 @@ $(document).ready(function () {
 
   // // Cloning Buttons
   $(".clone-button").on("click", function () {
-    clonedCaptainPlanet.appendTo("body").animate({
+    clonedCaptainPlanet.appendTo("body").addClass("cloned").animate({
       position: "absoulte",
       top: "700px",
       height: "150px",
       marginLeft: "800px",
     });
   });
+
   $(".unclone-button").on("click", function () {
-    clonedCaptainPlanet.animate({ opacity: "0" });
+    $(".cloned").remove();
   });
 
   // Move Buttons
