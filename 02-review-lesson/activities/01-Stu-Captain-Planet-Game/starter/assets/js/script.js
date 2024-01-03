@@ -1,7 +1,7 @@
 // JavaScript function that wraps everything
 $(document).ready(function () {
   const captainPlanet = $(".captain-planet");
-  const clonedCaptainPlanet = $(captainPlanet).clone();
+  let offsetTop = 700;
 
   // Gets Link for Theme Song
   const audioElement = document.createElement("audio");
@@ -36,16 +36,24 @@ $(document).ready(function () {
 
   // // Cloning Buttons
   $(".clone-button").on("click", function () {
-    clonedCaptainPlanet.appendTo("body").addClass("cloned").animate({
-      position: "absoulte",
-      top: "700px",
-      height: "150px",
-      marginLeft: "800px",
-    });
+    const clonedCaptainPlanet = $(captainPlanet).clone();
+
+    clonedCaptainPlanet
+      .appendTo("#captain-planet-container")
+      .addClass("cloned")
+      .animate({
+        position: "absolute",
+        top: offsetTop + "px",
+        height: "150px",
+      });
+
+    offsetTop += 400;
   });
 
   $(".unclone-button").on("click", function () {
-    $(".cloned").remove();
+    const clonedCpatain = $(".cloned");
+    clonedCpatain[clonedCpatain.length - 1].remove();
+    offsetTop = 700;
   });
 
   // Move Buttons
